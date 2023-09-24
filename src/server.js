@@ -41,7 +41,7 @@ app.get('/pesquisar-tarefa/:titulo', (req, res) => {
 });
 app.put('/atualizar-tarefa/:titulo', (req, res) => {
   const titulo = req.params.titulo;
-  const { descricao, status } = req.body;
+  const {status } = req.body;
 
   const index = tarefas.findIndex(tarefa => tarefa.titulo === titulo);
 
@@ -105,10 +105,7 @@ app.delete('/deletar-tarefa/:nome', (req, res) => {
 }); 
 
 app.get('/obter-tarefas', (req, res) => {
-  taf = tarefas;
-  taf.shift();
-  res.json(taf);
-  console.log(taf)
+  res.json(tarefas);
 });
 
 app.get('/paginas/lista_tarefas.html', (req, res) => {

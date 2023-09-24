@@ -23,7 +23,7 @@
             <option value="Concluída">Concluída</option>
         </select>
     </div>
-    <button id = 'bnt-pesquisa'class="btn btn-primary" onclick="pesquisarTarefa()">pesquisar-tarefa</button>
+    <button id = 'bnt-pesquisa'class="btn btn-primary" onclick="pesquisarTarefa()">Pesquisar tarefa</button>
     <br>
     <button id = 'bnt-atualiza'class="btn btn-primary" style="display: none;" onclick="atualizarTarefa()">Atualizar Tarefa</button>
     <script>
@@ -34,7 +34,7 @@
                 const response = await fetch(`/pesquisar-tarefa/${titulo}`);
                 const data = await response.json();
 
-                if (data.existe) {
+                if (data.existe === 'true') {
                     document.getElementById('bnt-pesquisa').style.display = 'none';
                     document.getElementById('divStatus').style.display = 'block';
                     document.getElementById('bnt-atualiza').style.display = 'block';
