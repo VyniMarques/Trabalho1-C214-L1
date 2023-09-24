@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar tarefas</title>
+    <style>
+        table {
+            width: 50%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="listaTarefas">
+            <!-- As tarefas serão exibidas aqui -->
+        </tbody>
+    </table>
+
+    <script>
+        // Função para carregar e exibir a lista de tarefas
+        async function carregarListaTarefas() {
+            try {
+                const response = await fetch('/obter-tarefas');  // Fazer uma requisição ao servidor para obter as tarefas
+                const tarefas = await response.json();  // Obter os dados em formato JSON
+                
+                const listaTarefas = document.getElementById('listaTarefas');
+
+                // Limpar a tabela antes de exibir as novas tarefas
+                listaTarefas.innerHTML = '';
+
+                // Iterar sobre as tarefas e criar linhas na tabela para cada uma
+                tarefas.forEach(tarefa => {
+                    const row = listaTarefas.insertRow();
+                    const cell1 = row.insertCell(0);
+                    const cell2 = row.insertCell(1);
+                    const cell3 = row.insertCell(2);
+                    
+                    cell1.textContent = tarefa.titulo;
+                    cell2.textContent = tarefa.descricao;
+                    cell3.textContent = tarefa.status;
+                });
+            } catch (error) {
+                console.error('Erro ao carregar a lista de tarefas:', error);
+            }
+        }
+
+        // Chamar a função para carregar a lista de tarefas ao carregar a página
+        carregarListaTarefas();
+    </script>
+</body>
+</html>
