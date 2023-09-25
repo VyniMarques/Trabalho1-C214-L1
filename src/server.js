@@ -78,7 +78,7 @@ app.post('/salvar-tarefa', (req, res) => {
   //console.log(tarefas);
 
   modificaTabela();
-
+  
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end(`Arquivo salvo em: ${caminho}`);
 });
@@ -125,8 +125,17 @@ app.get('/paginas/projeto.html', (req, res) => {
     res.send('Página de exclusão de tarefa');
   });
 
-//app.listen(PORT, () => {
-//  console.log(`Server is running on port ${PORT}`);
-//});
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
-module.exports = {app};
+function apagarLinha(){
+  tarefas.pop();
+  const data = tarefas.map(tarefa => [tarefa.titulo, tarefa.descricao, tarefa.status]);
+  const ws = XLSX.utils.aoa_to_sheet(data);
+  wb.SheetNames = ['Tarefas'];
+  wb.Sheets['Tarefas'] = ws;
+  modificaTabela();
+}
+
+module.exports = {app, apagarLinha};
