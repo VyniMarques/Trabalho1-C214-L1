@@ -67,7 +67,7 @@ describe('Teste Visualizar', () => {
 
 
 describe('Teste Atualizar', () => {
-  it('Teste para atualizar uma tarefa exitente de a fazer para Em andamento', (done) => {
+  it('Teste para atualizar uma tarefa existente de a fazer para Em andamento', (done) => {
 
     chai.request(app)
       .post('/salvar-tarefa')
@@ -85,7 +85,7 @@ describe('Teste Atualizar', () => {
           });
       });
     });
-    it('Teste para atualizar uma tarefa exitente de a fazer para Concluido', (done) => {
+    it('Teste para atualizar uma tarefa existente de a fazer para Concluido', (done) => {
 
       chai.request(app)
         .post('/salvar-tarefa')
