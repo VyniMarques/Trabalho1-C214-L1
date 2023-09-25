@@ -73,8 +73,7 @@
                 return response.text();
             })
             .then(message => {
-                alert(message); // Exibir uma mensagem de sucesso
-                // Redirecionar para a página de lista de tarefas ou fazer algo apropriado
+                alert(message);
                 window.location.href = '/paginas/projeto.html';
             })
             .catch(error => console.error('Erro:', error));

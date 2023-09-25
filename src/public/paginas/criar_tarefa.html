@@ -58,7 +58,8 @@
         })
         .then(response => response.text())
         .then(message => {
-            console.log('Resposta do servidor:', message);
+            alert(message);
+            window.location.href = '/paginas/projeto.html';
         })
         .catch(error => console.error('Erro ao salvar tarefa:', error));
 }

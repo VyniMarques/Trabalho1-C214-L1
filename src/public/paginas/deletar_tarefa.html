@@ -18,7 +18,6 @@
         function deletarTarefa() {
             const titulo = document.getElementById('inTitulo').value;
 
-            // Enviar uma requisição DELETE para deletar a tarefa
             fetch(`http://localhost:3000/deletar-tarefa/${titulo}`, {
                 method: 'DELETE',
             })
@@ -29,8 +28,7 @@
                 return response.text();
             })
             .then(message => {
-                alert(message); // Exibir uma mensagem de sucesso
-                // Redirecionar para a página de lista de tarefas ou fazer algo apropriado
+                alert(message); 
                 window.location.href = '/paginas/projeto.html';
             })
             .catch(error => console.error('Erro:', error));

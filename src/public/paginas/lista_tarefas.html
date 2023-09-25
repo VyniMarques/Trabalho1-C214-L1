@@ -26,27 +26,23 @@
     <table>
         <thead>
             <tr>
-
             </tr>
         </thead>
         <tbody id="listaTarefas">
-            <!-- As tarefas serão exibidas aqui -->
         </tbody>
     </table>
 
     <script>
-        // Função para carregar e exibir a lista de tarefas
+
         async function carregarListaTarefas() {
             try {
-                const response = await fetch('/obter-tarefas');  // Fazer uma requisição ao servidor para obter as tarefas
-                const tarefas = await response.json();  // Obter os dados em formato JSON
+                const response = await fetch('/obter-tarefas');  
+                const tarefas = await response.json(); 
                 
                 const listaTarefas = document.getElementById('listaTarefas');
 
-                // Limpar a tabela antes de exibir as novas tarefas
                 listaTarefas.innerHTML = '';
 
-                // Iterar sobre as tarefas e criar linhas na tabela para cada uma
                 tarefas.forEach(tarefa => {
                     const row = listaTarefas.insertRow();
                     const cell1 = row.insertCell(0);
@@ -62,7 +58,6 @@
             }
         }
 
-        // Chamar a função para carregar a lista de tarefas ao carregar a página
         carregarListaTarefas();
     </script>
 </body>
