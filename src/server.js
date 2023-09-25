@@ -66,7 +66,7 @@ app.post('/salvar-tarefa', (req, res) => {
   cabecalho = {titulo: 'Titulo', descricao:'Descricao', status:'Status'}
   if (tarefas.length === 0){
     tarefas.push(cabecalho)
-    console.log(tarefas)
+    //console.log(tarefas)
   }
   tarefas.push({ titulo, descricao, status });
 
@@ -75,7 +75,7 @@ app.post('/salvar-tarefa', (req, res) => {
   wb.SheetNames = ['Tarefas'];
   wb.Sheets['Tarefas'] = ws;
   
-  console.log(tarefas);
+  //console.log(tarefas);
 
   modificaTabela();
 
@@ -125,7 +125,8 @@ app.get('/paginas/projeto.html', (req, res) => {
     res.send('Página de exclusão de tarefa');
   });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+//app.listen(PORT, () => {
+//  console.log(`Server is running on port ${PORT}`);
+//});
 
+module.exports = {app};
