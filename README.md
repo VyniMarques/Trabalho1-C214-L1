@@ -6,7 +6,11 @@ Integrantes:
 - Vinicius Ximenes Pinto Marques - GES - 73
 - Caio Lima Ramos - GES - 72
 - Tiago Rodrigues Plum Ferreira - GEC - 1996
+ServerWeb
+servidor web usando o framework Express.js e implementa operações CRUD (Create, Read, Update, Delete) para gerenciar uma lista de tarefas em um arquivo XLSX.
+Neste código criamos um servidor que permite adicionar, atualizar, listar e excluir tarefas em um arquivo XLSX, além de servir páginas HTML relacionadas a essas operações. É uma aplicação de exemplo que demonstra o uso do Express.js e da biblioteca XLSX para manipulação de arquivos Excel.
 
+TESTE
  O código realiza testes para diferentes operações em uma lista de tarefas. Aqui está uma explicação sucinta do código:
 Importação de Módulos:
 
