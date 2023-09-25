@@ -74,6 +74,8 @@ app.post('/salvar-tarefa', (req, res) => {
   const ws = XLSX.utils.aoa_to_sheet(data);
   wb.SheetNames = ['Tarefas'];
   wb.Sheets['Tarefas'] = ws;
+  
+  console.log(tarefas);
 
   modificaTabela();
 
