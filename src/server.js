@@ -21,13 +21,13 @@ function modificaTabela(){
   XLSX.writeFile(wb, caminho);
 }
 
-app.use(bodyParser.json());  // Para fazer o parse de JSON
-app.use(bodyParser.urlencoded({ extended: true }));  // Para fazer o parse de dados de formulário
+app.use(bodyParser.json());  
+app.use(bodyParser.urlencoded({ extended: true }));  
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: true }));  // Parser de corpo no nível do aplicativo
+app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.get('/paginas/criar_tarefa.html', (req, res) => {
-    app.use(bodyParser.urlencoded({ extended: true }));  // Use o body-parser para tratar dados do corpo
+    app.use(bodyParser.urlencoded({ extended: true }));  
   });
 
 app.get('/pesquisar-tarefa/:titulo', (req, res) => {
@@ -47,10 +47,6 @@ app.put('/atualizar-tarefa/:titulo', (req, res) => {
 
   tarefas[index].status = status;
 
-  const data = tarefas.map(tarefa => [tarefa.titulo, tarefa.descricao, tarefa.status]);
-  const ws = XLSX.utils.aoa_to_sheet(data);
-  wb.SheetNames = ['Tarefas'];
-  wb.Sheets['Tarefas'] = ws;
 
   modificaTabela();
 
@@ -66,7 +62,6 @@ app.post('/salvar-tarefa', (req, res) => {
   cabecalho = {titulo: 'Titulo', descricao:'Descricao', status:'Status'}
   if (tarefas.length === 0){
     tarefas.push(cabecalho)
-    //console.log(tarefas)
   }
   tarefas.push({ titulo, descricao, status });
 
@@ -74,8 +69,6 @@ app.post('/salvar-tarefa', (req, res) => {
   const ws = XLSX.utils.aoa_to_sheet(data);
   wb.SheetNames = ['Tarefas'];
   wb.Sheets['Tarefas'] = ws;
-  
-  //console.log(tarefas);
 
   modificaTabela();
   
@@ -86,7 +79,6 @@ app.post('/salvar-tarefa', (req, res) => {
 app.delete('/deletar-tarefa/:nome', (req, res) => {
   const nomeTarefa = req.params.nome;
 
-    // Encontra o índice da tarefa com base no nome
   const indice = tarefas.findIndex(tarefa => tarefa.titulo === nomeTarefa);
 
   if (indice === -1) {
@@ -94,7 +86,6 @@ app.delete('/deletar-tarefa/:nome', (req, res) => {
       return;
     }
 
-    // Remove a tarefa do array
   tarefas.splice(indice, 1);
 
   const data = tarefas.map(tarefa => [tarefa.titulo, tarefa.descricao, tarefa.status]);
