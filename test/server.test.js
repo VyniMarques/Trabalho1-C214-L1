@@ -86,6 +86,25 @@ describe('Teste Atualizar', () => {
           });
       });
     });
+    it('Teste para atualizar uma tarefa exsitente de a fazer para Concluido', (done) => {
+
+      chai.request(app)
+        .post('/salvar-tarefa')
+        .send({ titulo: 'Tarefa1', descricao: 'Exemplo1', status: 'A fazer' })
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+  
+          // Agora tente atualizar a tarefa
+          chai.request(app)
+            .put('/atualizar-tarefa/Tarefa1')
+            .send({ status: 'Concluido' })
+            .end((err, res) => {
+              expect(res).to.have.status(200);
+              apagarLinha();
+              done();
+            });
+        });
+      });
 });
 //--------------------------------------------------------------------------------------------
 describe('Teste Excluir', () => {
