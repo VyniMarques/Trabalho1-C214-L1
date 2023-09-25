@@ -6,6 +6,8 @@ Integrantes:
 - Vinicius Ximenes Pinto Marques - GES - 73
 - Caio Lima Ramos - GES - 72
 - Tiago Rodrigues Plum Ferreira - GEC - 1996
+
+
 ServerWeb
 servidor web usando o framework Express.js e implementa operações CRUD (Create, Read, Update, Delete) para gerenciar uma lista de tarefas em um arquivo XLSX. Resumindo este código, criamos um servidor que permite adicionar, atualizar, listar e excluir tarefas em um arquivo XLSX, além de servir páginas HTML relacionadas a essas operações. É uma aplicação de exemplo que demonstra o uso do Express.js e da biblioteca XLSX para manipulação de arquivos Excel.
 
@@ -75,3 +77,20 @@ Realiza uma asserção no código de status da resposta.
 Teste para Excluir:
 Este teste está dentro do bloco "Teste Excluir". Ele simula a exclusão de uma tarefa existente usando uma solicitação DELETE para /deletar-tarefa/Tarefa1.
 Realiza uma asserção no código de status da resposta.
+
+**Depois de baixar as dependencias executar os comandos:**
+
+Obs: o teste e o servidor não devem ser executados ao mesmo tempo
+
+Para executar o programa:
+```
+cd src
+node server.js
+```
+Para executar os testes(na pasta raiz do projeto):
+```
+npm test
+```
+
+Link para o video:
+https://drive.google.com/drive/folders/1YrEBXAil-oLcjPiVRxYIELAfaHQpx-uj
