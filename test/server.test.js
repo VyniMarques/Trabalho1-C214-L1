@@ -67,7 +67,7 @@ describe('Teste Visualizar', () => {
 
 
 describe('Teste Atualizar', () => {
-  it('Teste para atualizar uma tarefa exsitente de a fazer para Em andamento', (done) => {
+  it('Teste para atualizar uma tarefa exitente de a fazer para Em andamento', (done) => {
 
     chai.request(app)
       .post('/salvar-tarefa')
@@ -75,7 +75,6 @@ describe('Teste Atualizar', () => {
       .end((err, res) => {
         expect(res).to.have.status(200);
 
-        // Agora tente atualizar a tarefa
         chai.request(app)
           .put('/atualizar-tarefa/Tarefa1')
           .send({ status: 'Em andamento' })
@@ -86,7 +85,7 @@ describe('Teste Atualizar', () => {
           });
       });
     });
-    it('Teste para atualizar uma tarefa exsitente de a fazer para Concluido', (done) => {
+    it('Teste para atualizar uma tarefa exitente de a fazer para Concluido', (done) => {
 
       chai.request(app)
         .post('/salvar-tarefa')
@@ -94,7 +93,6 @@ describe('Teste Atualizar', () => {
         .end((err, res) => {
           expect(res).to.have.status(200);
   
-          // Agora tente atualizar a tarefa
           chai.request(app)
             .put('/atualizar-tarefa/Tarefa1')
             .send({ status: 'Concluido' })
