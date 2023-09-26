@@ -78,6 +78,10 @@ Teste para Excluir:
 Este teste está dentro do bloco "Teste Excluir". Ele simula a exclusão de uma tarefa existente usando uma solicitação DELETE para /deletar-tarefa/Tarefa1.
 Realiza uma asserção no código de status da resposta.
 
+Para baixar as dependências:
+```
+npm install
+````
 **Depois de baixar as dependencias executar os comandos:**
 
 Obs: o teste e o servidor não devem ser executados ao mesmo tempo
